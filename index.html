@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acoriana Alimentos - Performance Comercial 2026</title>
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary: #D0312D; /* Vermelho Açoriana */
+            --secondary: #F47A20; /* Laranja Açoriana */
+            --brand-dark: #1F0D07; 
+            --brand-light: #FFF5F2; 
+            --accent: #FF5733;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            color: var(--brand-dark);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bg-gradient-acoriana {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .bg-gradient-hero {
+            background: linear-gradient(to right, #F47A20, #E63946, #D0312D);
+        }
+
+        .card-impact {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            background: white;
+            height: 100%;
+        }
+
+        .card-impact:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--primary);
+            box-shadow: 0 10px 25px -5px rgba(208, 49, 45, 0.15);
+        }
+
+        .status-alert {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(208, 49, 45, 0.1);
+        }
+
+        .progress-bar-bg {
+            background: #eee1de;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 6px;
+            transition: width 1s ease-in-out;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .critical-badge {
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .text-shadow-exec {
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .border-brand-soft { border-color: rgba(208, 49, 45, 0.2); }
+
+        /* Destaque Capa 40,5% */
+        .kpi-main-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            min-width: 280px;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            section { padding: 20px 0; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav class="nav-sticky px-6 py-4 flex justify-between items-center no-print">
+        <div class="flex items-center gap-4">
+            <img src="https://static.wixstatic.com/media/6c80f8_34cb6e1f840c4e4e8564100c0908bf96~mv2.png/v1/fill/w_168,h_119,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_acoriana_alimentos-removebg-preview.png" 
+                 alt="Logo Acoriana" class="h-10 md:h-12">
+            <div class="hidden md:block h-8 w-px bg-gray-300"></div>
+            <span class="hidden md:block font-bold text-gray-800 tracking-tight text-sm uppercase">Performance Comercial</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="hidden lg:flex gap-6 text-xs font-semibold text-gray-500 uppercase tracking-widest mr-4">
+                <a href="#diagnostico" class="hover:text-red-600 transition">Geral</a>
+                <a href="#grupos" class="hover:text-red-600 transition">Grupos</a>
+                <a href="#canais" class="hover:text-red-600 transition">Canais</a>
+                <a href="#carteira" class="hover:text-red-600 transition">Carteira</a>
+                <a href="#estrategia" class="hover:text-red-600 transition">Estratégia</a>
+            </div>
+            
+            <button onclick="window.print()" class="bg-brand-dark text-white px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-red-600 transition-all flex items-center gap-2 shadow-md">
+                <i class="fas fa-file-pdf"></i> PDF
+            </button>
+
+            <!-- Logotipo DataVisionX -->
+            <div class="flex flex-col items-end">
+                <span class="text-[8px] uppercase font-bold text-gray-400 mb-1 tracking-tighter">Consultoria Estratégica</span>
+                <div class="flex items-center gap-2">
+                    <span class="font-black text-slate-800 tracking-tighter text-lg">DataVision<span class="text-[#76BC21]">X</span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-hero text-white overflow-hidden min-h-[85vh] flex items-center shadow-inner">
+        <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#F47A20]/40 via-transparent to-[#D0312D]/40"></div>
+        <div class="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
+            <img src="https://images.unsplash.com/photo-1513135065346-a098a63a73ee?auto=format&fit=crop&q=80&w=1200" alt="Operação Açoriana" class="w-full h-full object-cover grayscale">
+        </div>
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
+                <div class="max-w-4xl">
+                    <div class="inline-flex items-center bg-white text-[#D0312D] px-5 py-2 rounded-full font-extrabold mb-10 text-xs tracking-widest uppercase shadow-xl status-alert">
+                        <i class="fas fa-chart-line mr-2"></i> Relatório de Performance Abr/2026
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-black leading-none mb-8 text-shadow-exec tracking-tighter uppercase">
+                        Resultado <br>
+                        <span class="text-white underline decoration-[#FFF]/30 decoration-8 underline-offset-8">Comercial</span> 
+                    </h1>
+                    <div class="h-2 w-48 bg-white/40 mb-10 rounded-full mx-auto lg:mx-0"></div>
+                    <p class="text-xl md:text-3xl text-white mb-12 max-w-2xl font-bold leading-relaxed text-shadow-exec">
+                        Fechamento da <strong>1ª Quinzena</strong>. <br>
+                        <span class="font-semibold opacity-90 text-2xl">Análise de volume, faturamento e mix de produtos.</span>
+                    </p>
+                </div>
+
+                <!-- DESTAQUE KPI 40,5% -->
+                <div class="kpi-main-card">
+                    <span class="text-[10px] uppercase font-black tracking-[0.4em] mb-4 block text-white/80">Atingimento Global</span>
+                    <div class="flex items-baseline justify-center">
+                        <span class="text-8xl font-black text-white tabular-nums">40,5</span>
+                        <span class="text-4xl font-black text-white">%</span>
+                    </div>
+                    <div class="w-full bg-white/20 h-2.5 rounded-full mt-6 overflow-hidden">
+                        <div class="bg-white h-full" style="width: 40.5%"></div>
+                    </div>
+                    <p class="mt-4 text-[10px] font-bold uppercase text-white/60 tracking-widest">Ritmo abaixo da meta (Ideal 50%)</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180 no-print">
+            <svg class="relative block w-full h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#FFF"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- KPI Dashboard -->
+    <section id="diagnostico" class="bg-white pt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-[#FFF8F6] p-8 rounded-2xl border border-brand-soft card-impact text-center md:text-left">
+                    <p class="text-gray-500 font-bold mb-2 uppercase text-[10px] tracking-widest">Volume Entregue</p>
+                    <h3 class="text-4xl font-black mb-2 text-brand-dark">292.390</h3>
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <span class="text-[#D0312D] font-black">40,5%</span>
+                        <span class="text-gray-500 text-sm font-semibold">da Meta</span>
+                    </div>
+                    <div class="progress-bar-bg mt-4">
+                        <div class="progress-bar-fill" style="width: 40.5%;"></div>
+                    </div>
+                </div>
+                <div class="bg-[#FFF8F6] p-8 rounded-2xl border border-brand-soft card-impact text-center md:text-left">
+                    <p class="text-gray-500 font-bold mb-2 uppercase text-[10px] tracking-widest">Faturamento vs 2025</p>
+                    <h3 class="text-4xl font-black mb-2 text-[#D0312D]">-4,5%</h3>
+                    <p class="text-gray-500 text-sm font-semibold">R$ 1.348.908 atual</p>
+                    <div class="mt-4 flex items-center gap-2 text-red-600 font-black justify-center md:justify-start">
+                        <i class="fas fa-arrow-trend-down"></i> Perda de Valor
+                    </div>
+                </div>
+                <div class="bg-[#FFF8F6] p-8 rounded-2xl border border-brand-soft card-impact text-center md:text-left">
+                    <p class="text-gray-500 font-bold mb-2 uppercase text-[10px] tracking-widest">Gap p/ Ritmo Ideal</p>
+                    <h3 class="text-4xl font-black mb-2 text-brand-dark">68.468</h3>
+                    <p class="text-gray-500 text-sm font-semibold">Déficit na quinzena</p>
+                    <div class="mt-4 flex items-center gap-2 text-[#F47A20] font-black text-sm justify-center md:justify-start">
+                        <i class="fas fa-clock"></i> Reação Imediata
+                    </div>
+                </div>
+                <div class="bg-[#FFF8F6] p-8 rounded-2xl border border-brand-soft card-impact text-center md:text-left">
+                    <p class="text-gray-500 font-bold mb-2 uppercase text-[10px] tracking-widest">Projeção Final</p>
+                    <h3 class="text-4xl font-black mb-2 text-brand-dark">85,1%</h3>
+                    <p class="text-gray-500 text-sm font-semibold">Risco de -107.697</p>
+                    <div class="progress-bar-bg mt-4">
+                        <div class="progress-bar-fill bg-[#F47A20]" style="width: 85.1%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AJUSTE DE COR: CENÁRIO DE FORTE ALERTA (FUNDO CLARO, LETRAS ESCURAS) -->
+            <div class="mt-16 bg-[#FFF5F2] border-2 border-brand-soft rounded-[3rem] p-12 text-brand-dark flex flex-col md:flex-row items-center gap-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-red-600 opacity-5 rounded-full -mr-32 -mt-32"></div>
+                <div class="md:w-2/3 relative z-10">
+                    <h2 class="text-4xl font-black mb-6 tracking-tight text-[#D0312D] uppercase">Cenário de Forte Alerta</h2>
+                    <p class="text-xl leading-relaxed mb-8 font-bold">
+                        A companhia entrou na 2ª quinzena já com um gap significativo. O problema não é apenas ritmo; há também <strong>deterioração de mix e produtividade comercial</strong>, puxada principalmente pelos Grupos 01 e 02.
+                    </p>
+                    <div class="flex gap-8">
+                        <div class="bg-white p-5 rounded-2xl border border-brand-soft text-center min-w-[140px] shadow-sm">
+                            <span class="block text-4xl font-black text-[#D0312D]">75</span>
+                            <span class="text-[10px] uppercase font-black opacity-60 tracking-widest">Inativos</span>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-brand-soft text-center min-w-[140px] shadow-sm">
+                            <span class="block text-4xl font-black text-[#D0312D]">5</span>
+                            <span class="text-[10px] uppercase font-black opacity-60 tracking-widest">Rotas Foco</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3 bg-white p-8 rounded-3xl border border-brand-soft relative z-10 text-center shadow-lg">
+                    <h4 class="font-black mb-4 uppercase text-xs tracking-widest text-[#F47A20]">Leitura Executiva</h4>
+                    <p class="italic text-xl font-bold leading-relaxed text-brand-dark">"Não há espaço para complacência. A 2ª quinzena precisará de reação comercial intensa."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranking Section (Completo com 4 Grupos) -->
+    <section id="grupos" class="bg-[#FFF9F7]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4 text-brand-dark uppercase tracking-tighter">Ranking Executivo de Criticidade</h2>
+                <div class="h-1.5 w-24 bg-[#D0312D] mx-auto mb-4 rounded-full"></div>
+                <p class="text-gray-500 italic text-sm text-center">Diagnóstico por grupo operacional e impacto no resultado.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                <!-- Grupo 02 -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-red-100 flex gap-8 items-start relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-[#D0312D] text-white px-8 py-3 rounded-bl-3xl font-black text-[10px] tracking-widest uppercase shadow-lg">1º - MAIS CRÍTICO</div>
+                    <div class="bg-red-50 p-5 rounded-2xl text-[#D0312D]">
+                        <i class="fas fa-radiation fa-3x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-black mb-3 text-brand-dark uppercase">Grupo 02</h3>
+                        <p class="text-gray-700 mb-6 text-sm leading-relaxed font-semibold">Pior atingimento (37,5%) e pior projeção (78,8%). Queda ampla em varejo e rede, com 27 clientes sem compra.</p>
+                        <div class="flex gap-4">
+                            <span class="critical-badge">Projeção 78,8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo 01 -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-orange-100 flex gap-8 items-start relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-[#F47A20] text-white px-8 py-3 rounded-bl-3xl font-black text-[10px] tracking-widest uppercase shadow-lg">2º - FRAGILIDADE</div>
+                    <div class="bg-orange-50 p-5 rounded-2xl text-[#F47A20]">
+                        <i class="fas fa-burst fa-3x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-black mb-3 text-brand-dark uppercase">Grupo 01</h3>
+                        <p class="text-gray-700 mb-6 text-sm leading-relaxed font-semibold">Deterioração estrutural: queda de Faturamento (-10,2%) e Vol (-10,1%). Colapso em terceiros.</p>
+                        <div class="flex gap-4">
+                            <span class="bg-orange-100 text-[#F47A20] px-4 py-1.5 rounded-full text-[10px] font-black uppercase">Ating. 39,8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo 03 -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-brand-soft flex gap-8 items-start relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-yellow-500 text-white px-8 py-3 rounded-bl-3xl font-black text-[10px] tracking-widest uppercase shadow-lg">3º - PRESSIONADO</div>
+                    <div class="bg-[#FFF8F6] p-5 rounded-2xl text-yellow-600">
+                        <i class="fas fa-arrows-rotate fa-3x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-black mb-3 text-brand-dark uppercase">Grupo 03</h3>
+                        <p class="text-gray-700 mb-6 text-sm leading-relaxed font-semibold">Volume cresce (+4,2%), mas faturamento cai (-2,8%). Monetização enfraquecida por mix desfavorável.</p>
+                        <div class="flex gap-4">
+                            <span class="bg-yellow-100 text-yellow-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase text-center">Ating. 42,8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo 04 -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-green-100 flex gap-8 items-start relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-green-600 text-white px-8 py-3 rounded-bl-3xl font-black text-[10px] tracking-widest uppercase shadow-lg">4º - CADÊNCIA</div>
+                    <div class="bg-green-50 p-5 rounded-2xl text-green-600">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-black mb-3 text-brand-dark uppercase">Grupo 04</h3>
+                        <p class="text-gray-700 mb-6 text-sm leading-relaxed font-semibold">Crescimento anual forte (+20,2% Fat), mas atingimento quinzenal insuficiente frente à meta.</p>
+                        <div class="flex gap-4">
+                            <span class="bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase text-center">Volume +32,2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Canais: Rede vs Varejo (DADOS INTEGRADOS) -->
+    <section id="canais" class="bg-white py-24 border-b border-brand-soft">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-black mb-4 text-brand-dark uppercase text-center tracking-tighter">Análise por Canal: Rede vs Varejo</h2>
+            <div class="h-1.5 w-24 bg-[#D0312D] mx-auto mb-16 rounded-full"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Insights de Canais -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-black mb-6 uppercase border-l-4 border-red-600 pl-4">Impacto nas Redes Estruturadas</h3>
+                    
+                    <div class="bg-slate-50 p-8 rounded-3xl border-l-8 border-red-600 shadow-sm">
+                        <h4 class="font-black text-brand-dark mb-4 uppercase text-sm tracking-widest">Grupo 01 - Redes em Queda (-16,80%)</h4>
+                        <p class="text-sm text-gray-600 mb-6 font-medium leading-relaxed">A retração nas Redes é o principal vetor de perda estrutural do grupo. Enquanto o Varejo caiu -6,39%, as contas estratégicas sofreram quedas agudas.</p>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-white p-3 rounded-xl border border-red-100 shadow-inner">
+                                <span class="block text-[9px] text-gray-400 font-bold uppercase mb-1">Maxireal</span>
+                                <span class="text-red-600 font-black">-78,2% Fat</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-red-100 shadow-inner">
+                                <span class="block text-[9px] text-gray-400 font-bold uppercase mb-1">Müller</span>
+                                <span class="text-red-600 font-black">-34,0% Fat</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-8 rounded-3xl border-l-8 border-red-700 shadow-sm">
+                        <h4 class="font-black text-brand-dark mb-4 uppercase text-sm tracking-widest">Grupo 02 - Colapso no Canal Rede (-18,66%)</h4>
+                        <p class="text-sm text-gray-600 mb-6 font-medium leading-relaxed">A queda nas Redes superou significativamente a do Varejo (-7,56%), indicando perda de volume em clientes de grande porte como Super Barato e Redfort.</p>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-white p-3 rounded-xl border border-red-100 shadow-inner">
+                                <span class="block text-[9px] text-gray-400 font-bold uppercase mb-1">Super Barato</span>
+                                <span class="text-red-600 font-black">-45,6% Fat</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-red-100 shadow-inner">
+                                <span class="block text-[9px] text-gray-400 font-bold uppercase mb-1">Redfort</span>
+                                <span class="text-red-600 font-black">-30,3% Fat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Distribuição -->
+                <div class="bg-[#FFF8F6] p-10 rounded-[4rem] border border-brand-soft shadow-inner">
+                    <h3 class="text-2xl font-black mb-10 text-center uppercase tracking-widest text-[#D0312D]">Peso de Faturamento no Grupo</h3>
+                    <div class="space-y-12">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-3"><span>Grupo 01</span> <span class="text-red-600">Rede 33,7%</span> | <span class="text-[#F47A20]">Varejo 66,3%</span></div>
+                            <div class="h-8 w-full flex rounded-2xl overflow-hidden shadow-md">
+                                <div class="bg-red-600 h-full" style="width: 33.7%"></div>
+                                <div class="bg-[#F47A20] h-full" style="width: 66.3%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-3"><span>Grupo 02</span> <span class="text-red-600">Rede 24,4%</span> | <span class="text-[#F47A20]">Varejo 75,6%</span></div>
+                            <div class="h-8 w-full flex rounded-2xl overflow-hidden shadow-md">
+                                <div class="bg-red-600 h-full" style="width: 24.4%"></div>
+                                <div class="bg-[#F47A20] h-full" style="width: 75.6%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] font-black uppercase mb-3"><span>Grupo 03</span> <span class="text-green-600">Rede 36,2% (+5,2%)</span> | <span class="text-[#F47A20]">Varejo 63,8%</span></div>
+                            <div class="h-8 w-full flex rounded-2xl overflow-hidden shadow-md">
+                                <div class="bg-red-800 h-full" style="width: 36.2%"></div>
+                                <div class="bg-[#F47A20] h-full" style="width: 63.8%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center gap-12 mt-12 pt-8 border-t border-red-100">
+                        <div class="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-red-600"><div class="w-4 h-4 bg-red-600 rounded"></div> Redes</div>
+                        <div class="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-[#F47A20]"><div class="w-4 h-4 bg-[#F47A20] rounded"></div> Varejo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Saúde da Carteira -->
+    <section id="carteira" class="bg-[#FFF5F2] py-24 border-y border-brand-soft">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-5xl md:text-6xl font-black mb-10 italic text-[#D0312D] leading-tight tracking-tighter uppercase text-center md:text-left text-shadow-exec">Saúde da Carteira <br>de Clientes</h2>
+                    <p class="text-2xl text-brand-dark leading-relaxed mb-12 font-bold text-center md:text-left">
+                        Perda de recorrência identificada: <span class="text-[#D0312D]">75 clientes estratégicos</span> sem compras recentes.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 100%;">
+                        <div class="flex items-center gap-6">
+                            <div class="text-5xl font-black text-white bg-[#D0312D] w-24 h-24 min-w-[96px] flex items-center justify-center rounded-[2rem] shadow-xl">27</div>
+                            <div>
+                                <h4 class="font-black text-xl text-brand-dark">Grupo 02</h4>
+                                <p class="text-[#D0312D] text-[11px] uppercase font-black tracking-widest text-left">36% da Inatividade</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-left">
+                            <div class="text-5xl font-black text-white bg-[#D0312D] w-24 h-24 flex items-center justify-center rounded-[2rem] shadow-xl">20</div>
+                            <div>
+                                <h4 class="font-black text-xl text-brand-dark">Grupo 03</h4>
+                                <p class="text-gray-600 text-[11px] uppercase font-black tracking-widest">Rotas 08 e 29</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-left">
+                            <div class="text-5xl font-black text-white bg-[#D0312D] w-24 h-24 flex items-center justify-center rounded-[2rem] shadow-xl">15</div>
+                            <div>
+                                <h4 class="font-black text-xl text-brand-dark">Grupo 04</h4>
+                                <p class="text-gray-600 text-[11px] uppercase font-black tracking-widest">Rotas 09 e 22</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 text-left">
+                            <div class="text-5xl font-black text-white bg-[#D0312D] w-24 h-24 flex items-center justify-center rounded-[2rem] shadow-xl">13</div>
+                            <div>
+                                <h4 class="font-black text-xl text-brand-dark">Grupo 01</h4>
+                                <p class="text-gray-600 text-[11px] uppercase font-black tracking-widest text-left">Rotas 11 e 06</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white border-2 border-[#D0312D] p-16 rounded-[4rem] shadow-2xl relative text-left">
+                    <i class="fas fa-user-xmark text-[#D0312D] text-7xl mb-10"></i>
+                    <h3 class="text-4xl font-black mb-8 uppercase tracking-tighter text-brand-dark">Alvo: Reativação</h3>
+                    <p class="text-gray-800 mb-12 leading-relaxed text-xl font-bold">
+                        Em vários casos, as rotas que caem são as mesmas que exibem fragilidade de base. É um sinal clássico de enfraquecimento que exige uma ação imediata por rota.
+                    </p>
+                    <div class="p-6 bg-[#D0312D] rounded-[1.5rem] text-white font-black text-center uppercase tracking-[0.2em] text-sm shadow-xl">
+                        Plano Tático por Rota Necessário
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estratégia Final -->
+    <section id="estrategia" class="bg-white py-24 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-6xl font-black mb-20 tracking-tighter text-brand-dark uppercase">Resumo de Estratégia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div class="space-y-8 p-6">
+                    <div class="w-24 h-24 bg-red-50 text-[#D0312D] rounded-[2rem] flex items-center justify-center mx-auto text-4xl font-black border border-brand-soft shadow-sm">01</div>
+                    <h3 class="text-2xl font-black uppercase text-brand-dark tracking-tight">Cadência</h3>
+                    <p class="text-gray-800 leading-relaxed text-lg font-bold italic text-center">"Gap de 68.468 unid. frente ao ritmo ideal de 50%."</p>
+                </div>
+                <div class="space-y-8 p-6">
+                    <div class="w-24 h-24 bg-orange-50 text-[#F47A20] rounded-[2rem] flex items-center justify-center mx-auto text-4xl font-black border border-brand-soft shadow-sm">02</div>
+                    <h3 class="text-2xl font-black uppercase text-brand-dark tracking-tight text-center">Queda Real</h3>
+                    <p class="text-gray-800 leading-relaxed text-lg font-bold italic text-center">"G1 e G2 perdem faturamento e volume simultaneamente."</p>
+                </div>
+                <div class="space-y-8 p-6">
+                    <div class="w-24 h-24 bg-brand-light text-brand-dark rounded-[2rem] flex items-center justify-center mx-auto text-4xl font-black border border-brand-soft shadow-sm">03</div>
+                    <h3 class="text-2xl font-black uppercase text-brand-dark tracking-tight text-center">Qualidade</h3>
+                    <p class="text-gray-800 leading-relaxed text-lg font-bold italic text-center">"G3 cresce volume, mas perde monetização por mix."</p>
+                </div>
+            </div>
+            
+            <div class="mt-24 p-16 bg-[#FFF5F2] border-2 border-brand-soft rounded-[4rem] shadow-2xl inline-block max-w-6xl mx-auto w-full relative text-left">
+                <h3 class="text-4xl font-black mb-10 uppercase tracking-widest text-[#D0312D]">Veredito Final</h3>
+                <p class="text-2xl md:text-3xl font-bold text-brand-dark italic mb-14 max-w-4xl mx-auto leading-relaxed text-shadow-exec">
+                    "O cenário é de forte alerta, mas há espaço para recuperação imediata. O foco deve ser a reativação da base, o equilíbrio de mix e a recuperação das contas estruturadas (Redes) nos Grupos 01 e 02."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#FFF8F6] border-t border-brand-soft py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+            <div class="flex items-center gap-8 flex-col md:flex-row">
+                <img src="https://static.wixstatic.com/media/6c80f8_34cb6e1f840c4e4e8564100c0908bf96~mv2.png/v1/fill/w_168,h_119,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_acoriana_alimentos-removebg-preview.png" 
+                     alt="Logótipo Acoriana" class="h-16 grayscale brightness-50 opacity-40">
+                <div class="hidden md:block h-10 w-px bg-brand-soft"></div>
+                <div class="flex flex-col">
+                    <p class="text-brand-dark/60 text-[10px] font-black tracking-[0.3em] uppercase mb-2">Elaborado por:</p>
+                    <div class="flex items-center justify-center md:justify-start">
+                         <span class="font-black text-slate-900 tracking-tighter text-2xl grayscale opacity-70 leading-none">DataVision<span class="text-[#76BC21]">X</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-6 no-print">
+                <button onclick="window.print()" class="bg-brand-dark text-white px-8 py-3 rounded-2xl font-black hover:bg-[#D0312D] transition-all flex items-center gap-3 text-xs uppercase tracking-widest shadow-lg">
+                    <i class="fas fa-file-pdf"></i> EXPORTAR PDF
+                </button>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
